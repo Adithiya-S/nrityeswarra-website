@@ -1,0 +1,22 @@
+# Exclude zip files and temporary files
+*.zip
+*.tmp
+*.temp
+
+# Exclude PowerShell scripts (if not needed for deployment)
+*.ps1
+
+# Exclude nested Git directory if it exists
+Gayathri-Website-Git/
+
+# Exclude system files
+.DS_Store
+Thumbs.db
+
+# Exclude IDE files
+.vscode/
+.idea/
+
+# Exclude node_modules if you add them later
+node_modules/
+npm-debug.log*
