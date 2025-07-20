@@ -23,7 +23,7 @@ Gayathri is a trained and certified Bharatanatyam teacher who offers online clas
 
 ## Deployment
 
-This website is automatically deployed using AWS Amplify. Any changes pushed to the main branch will trigger an automatic deployment.
+This website is automatically deployed using AWS Amplify connected to GitHub. Any changes pushed to the main branch will trigger an automatic deployment.
 
 ## Contact
 
