@@ -52,8 +52,8 @@
 
         .logo {
             font-size: 2.2rem;
-            font-weight: bold;
-            color: #B8860B;
+            font-weight: normal;
+            color: #FFFFFF;
             display: flex;
             align-items: center;
             flex-shrink: 0;
@@ -63,7 +63,7 @@
         .logo img {
             height: 60px;
             width: 60px;
-            margin-right: 10px;
+            margin-right: 15px;
             border-radius: 50%;
             object-fit: cover;
         }
@@ -81,13 +81,13 @@
         }
 
         .nav-links a:hover {
-            color: #B8860B;
+            color: #FFFFFF;
         }
 
         /* Hero Section */
         .hero {
             height: 100vh;
-            background-image: url("gayathri-bg1.jpg");
+            background-image: url("g3-bg.jpg");
             background-size: cover;
             background-position: center -80px;
             background-repeat: no-repeat;
@@ -106,7 +106,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(rgba(44, 44, 44, 0.7), rgba(26, 26, 26, 0.7));
+            background: linear-gradient(rgba(44, 44, 44, 0.4), rgba(26, 26, 26, 0.4));
             z-index: 1;
         }
 
@@ -125,12 +125,12 @@
             width: 200px;
             height: 200px;
             margin: 0 auto 2rem;
-            background: rgba(184, 134, 11, 0.2);
+            background: rgba(0, 0, 0, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 3px solid #B8860B;
+            border: 3px solid #000000;
         }
 
         .hero-logo img {
@@ -150,20 +150,20 @@
 
         .cta-button {
             display: inline-block;
-            background: #B8860B;
+            background: #000000;
             color: white;
             padding: 12px 30px;
             text-decoration: none;
             border-radius: 25px;
             font-weight: bold;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(184, 134, 11, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .cta-button:hover {
-            background: #9a7209;
+            background: #333333;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(154, 114, 9, 0.4);
+            box-shadow: 0 6px 20px rgba(51, 51, 51, 0.4);
         }
 
         /* Section Styles */
@@ -177,10 +177,12 @@
 
         .section h2 {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 3.2rem;
             color: #1a1a1a;
             margin-bottom: 3rem;
             position: relative;
+            font-family: 'Parisienne', cursive;
+            font-weight: normal;
         }
 
         .section h2::after {
@@ -191,7 +193,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background: #B8860B;
+            background: #000000;
         }
 
         /* About Section */
@@ -234,7 +236,7 @@
 
         /* Portfolio Section */
         #portfolio {
-            background-image: url("portfolio-bg.jpg");
+            background-image: url("g3-portfolio.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -250,7 +252,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(rgba(44, 44, 44, 0.7), rgba(26, 26, 26, 0.7));
+            background: linear-gradient(rgba(44, 44, 44, 0.4), rgba(26, 26, 26, 0.4));
             z-index: 0;
         }
 
@@ -267,7 +269,7 @@
         }
 
         #portfolio h2::after {
-            background: #B8860B;
+            background: #FFFFFF;
         }
 
         .portfolio-grid {
@@ -301,7 +303,7 @@
         .portfolio-image {
             width: 100%;
             height: 60%;
-            background: linear-gradient(45deg, #666666, #B8860B);
+            background: linear-gradient(45deg, #666666, #FFFFFF);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -351,6 +353,10 @@
             align-items: start;
         }
 
+        .registration .section h2::after {
+            background: #000000;
+        }
+
         .registration-cta {
             grid-column: 1 / -1;
             text-align: center;
@@ -395,7 +401,7 @@
             padding: 1rem;
             background: #f8f8f8;
             border-radius: 8px;
-            border-left: 4px solid #B8860B;
+            border-left: 4px solid #000000;
         }
 
         .detail-item strong {
@@ -459,7 +465,7 @@
         .contact-icon {
             width: 35px;
             height: 35px;
-            background: #B8860B;
+            background: #FFFFFF;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -481,8 +487,16 @@
         }
 
         .contact-item a:hover {
-            color: #B8860B;
+            color: #FFFFFF;
             text-decoration: underline;
+        }
+
+        .contact .section h2 {
+            color: white;
+        }
+
+        .contact .section h2::after {
+            background: #FFFFFF;
         }
 
         /* Footer */
@@ -832,7 +846,7 @@
         <h2>About Gayathri</h2>
         <div class="about-content">
             <div class="about-image">
-                <img src="about-gayathri.jpg" alt="Gayathri Narayanamurthi">
+                <img src="g3-about.jpg" alt="Gayathri Narayanamurthi">
             </div>
             <div class="about-text">
                 <p>Gayathri, a trained and certified Bharatanatyam teacher, started her lessons in Bharatanatyam at 5 years old with her mother Mrs. Chandrika Narayanamurthi, who completed her post graduation in 1971 from Kalakshetra under Mrs Sarada Hoffman.</p>
@@ -865,7 +879,7 @@
         <div class="portfolio-grid">
             <a href="temple-performance-gallery.html" class="portfolio-item">
                 <div class="portfolio-image">
-                    <img src="temple-performance.jpg" alt="Temple Festival Performance">
+                    <img src="g3-temple.jpg" alt="Temple Festival Performance">
                 </div>
                 <div class="portfolio-content">
                     <h3>Temple Festival Performance</h3>
@@ -911,7 +925,7 @@
                             <strong>Platform:</strong> Zoom/Google Meet/Microsoft Teams
                         </div>
                         <div class="detail-item">
-                            <strong>Experience:</strong> Intermediate and above
+                            <strong>Experience:</strong> Basic Knowledge
                         </div>
                     </div>
                 </div>
