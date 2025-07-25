@@ -99,7 +99,7 @@
             height: 100vh;
             background-image: url("g3-bg.jpg");
             background-size: cover;
-            background-position: center -80px;
+            background-position: center -120px;
             background-repeat: no-repeat;
             position: relative;
             display: flex;
@@ -131,27 +131,10 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             font-family: 'Zapfino', cursive;
             font-weight: normal;
-            transform: translateY(50px);
+            transform: translateY(20px);
         }
 
-        .hero-logo {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 2rem;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid #000000;
-        }
 
-        .hero-logo img {
-            width: 160px;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
 
         .hero-content p {
             font-size: 1.3rem;
@@ -159,7 +142,7 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            transform: translateY(20px);
+            transform: translateY(180px);
         }
 
         .cta-button {
@@ -172,12 +155,13 @@
             font-weight: bold;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(160px);
         }
 
         .cta-button:hover {
             background: #333333;
-            transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(51, 51, 51, 0.4);
+            transform: translateY(160px) scale(1.05);
         }
 
         /* Section Styles */
@@ -197,6 +181,7 @@
             position: relative;
             font-family: 'Zapfino', cursive;
             font-weight: normal;
+            line-height: 2;
         }
 
         .section h2::after {
@@ -355,7 +340,7 @@
         /* Registration Section */
         .registration {
             background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
-            padding: 40px 0;
+            padding: 20px 0;
         }
 
         .registration-content {
@@ -391,12 +376,11 @@
         .class-info h3, .class-details h3 {
             color: #1a1a1a;
             margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-            font-family: 'Zapfino', cursive;
-            font-weight: normal;
+            font-size: 1.6rem;
+            font-family: 'Georgia', serif;
+            font-weight: bold;
             text-align: center;
             line-height: 1.4;
-            transform: translateY(18px);
         }
 
         .class-info ul {
@@ -429,13 +413,12 @@
 
         .registration-cta h3 {
             color: #1a1a1a;
-            font-size: 1.6rem;
+            font-size: 1.9rem;
             margin-bottom: 1rem;
-            font-family: 'Zapfino', cursive;
-            font-weight: normal;
+            font-family: 'Georgia', serif;
+            font-weight: bold;
             text-align: center;
             line-height: 1.4;
-            transform: translateY(18px);
         }
 
         .registration-cta p {
@@ -460,7 +443,7 @@
 
         .register-btn:hover {
             background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
-            transform: translateY(-3px);
+            transform: scale(1.05);
             box-shadow: 0 8px 25px rgba(44, 44, 44, 0.4);
         }
 
@@ -650,7 +633,7 @@
             }
 
             .section {
-                padding: 50px 0;
+                padding: 70px 0;
                 padding-left: 1rem;
                 padding-right: 1rem;
             }
@@ -673,12 +656,16 @@
             }
 
             .about-image {
-                height: 300px;
+                height: 400px;
+            }
+
+            .about-image img {
+                object-position: center 60%;
             }
 
             /* Fix positioning for second about image on mobile */
             .about-content-reverse .about-image img {
-                object-position: center top;
+                object-position: center 10%;
             }
 
             .about-text {
@@ -731,19 +718,9 @@
                 font-size: 1rem;
                 padding: 0;
             }
-            
-            .hero-logo {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .hero-logo img {
-                width: 120px;
-                height: 120px;
-            }
 
             .section {
-                padding: 40px 0;
+                padding: 60px 0;
                 padding-left: 0.5rem;
                 padding-right: 0.5rem;
             }
@@ -753,7 +730,11 @@
             }
 
             .about-image {
-                height: 250px;
+                height: 350px;
+            }
+
+            .about-image img {
+                object-position: center 55%;
             }
 
             .portfolio-grid {
@@ -809,16 +790,6 @@
                 font-size: 1.5rem;
             }
 
-            .hero-logo {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .hero-logo img {
-                width: 100px;
-                height: 100px;
-            }
-
             .about-image {
                 height: 200px;
             }
@@ -856,9 +827,6 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <div class="hero-logo">
-                <img src="g3-logo.jpg" alt="Gayathri Narayanamurthi Logo">
-            </div>
             <h1>Gayathri Narayanamurthi</h1>
             <p>Master of Bharatanatyam • Kalakshetra Style • Classical Indian Dance&nbsp;Artist • Online&nbsp;Instructor</p>
             <a href="#classes" class="cta-button">Join Online Classes</a>
@@ -926,18 +894,28 @@
             <h2>Online Bharatanatyam Classes</h2>
             <div class="registration-content">
                 <div class="class-info">
-                    <h3>🎭 What You'll Learn</h3>
-                    <ul>
-                        <li>✨ Traditional Bharatanatyam techniques and postures</li>
-                        <li>🎵 Rhythm and musical understanding</li>
-                        <li>💃 Graceful movements and expressions</li>
-                        <li>📚 Cultural significance and history</li>
-                        <li>🎪 Performance skills and confidence</li>
-                    </ul>
+                    <h3>What You'll Learn</h3>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            Traditional Bharatanatyam techniques and postures
+                        </div>
+                        <div class="detail-item">
+                            Rhythm and musical understanding
+                        </div>
+                        <div class="detail-item">
+                            Graceful movements and expressions
+                        </div>
+                        <div class="detail-item">
+                            Cultural significance and history
+                        </div>
+                        <div class="detail-item">
+                            Performance skills and confidence
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="class-details">
-                    <h3>📅 Class Information</h3>
+                    <h3>Class Information</h3>
                     <div class="details-grid">
                         <div class="detail-item">
                             <strong>Duration:</strong> 1 hour per session
@@ -958,7 +936,7 @@
                     <h3>Ready to Begin Your Journey?</h3>
                     <p>Fill out our registration form and Gayathri will contact you within 24 hours to discuss your personalized class schedule.</p>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgxxsBKxfkHlmvD6zwyAjYDHfmDmq-7odcXMOuaWNEvpbCpg/viewform" target="_blank" class="register-btn">
-                        📝 Register Now
+                        Register Now
                     </a>
                 </div>
             </div>
