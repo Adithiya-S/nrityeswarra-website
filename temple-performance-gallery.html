@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temple Festival Performance - Gallery | Nrityeswarra</title>
+    <title>Program Pictures - Gallery | Nrityeswarra</title>
     <style>
         @font-face {
             font-family: 'Zapfino';
@@ -134,9 +134,8 @@
         }
 
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            column-count: 3;
+            column-gap: 2rem;
             margin-top: 2rem;
         }
 
@@ -146,6 +145,10 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
+            break-inside: avoid;
+            margin-bottom: 2rem;
+            display: inline-block;
+            width: 100%;
         }
 
         .gallery-item:hover {
@@ -154,20 +157,18 @@
 
         .gallery-image {
             width: 100%;
-            height: 250px;
             background: linear-gradient(45deg, #666666, #FFFFFF);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: bold;
-            overflow: hidden;
         }
 
         .gallery-image img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            display: block;
         }
 
         .gallery-description {
@@ -194,6 +195,110 @@
             margin-top: 3rem;
         }
 
+        /* Lightbox Styles */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox.active img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2001;
+            transition: color 0.3s ease, transform 0.2s ease;
+            opacity: 0;
+        }
+
+        .lightbox.active .lightbox-close {
+            opacity: 1;
+        }
+
+        .lightbox-close:hover {
+            color: #ccc;
+            transform: scale(1.1);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            z-index: 2001;
+            transition: color 0.3s ease, transform 0.2s ease;
+            padding: 10px;
+            opacity: 0;
+        }
+
+        .lightbox.active .lightbox-nav {
+            opacity: 1;
+        }
+
+        .lightbox-nav:hover {
+            color: #ccc;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        /* Make gallery images clickable */
+        .gallery-image {
+            width: 100%;
+            background: linear-gradient(45deg, #666666, #FFFFFF);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
@@ -205,7 +310,13 @@
             }
 
             .gallery-grid {
-                grid-template-columns: 1fr;
+                column-count: 1;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .gallery-grid {
+                column-count: 2;
             }
         }
     </style>
@@ -231,44 +342,376 @@
         <a href="index.html#portfolio" class="back-link">← Back to Portfolio</a>
         
         <div class="gallery-header">
-            <h1>Temple Festival Performance</h1>
-            <p>A mesmerizing performance at the annual temple festival, showcasing traditional Bharatanatyam repertoire with divine devotion and spiritual connection.</p>
+            <h1>Program Pictures</h1>
+            <p>A collection of memorable performances across various cultural programs and sacred temple venues, celebrating the divine art of Bharatanatyam through traditional repertoire and spiritual expression.</p>
         </div>
 
         <div class="gallery-grid">
+            <!-- Programs Images from Temple Performance -->
             <div class="gallery-item">
                 <div class="gallery-image">
-                    <img src="temple-performance.jpg" alt="Main Temple Performance">
+                    <img src="Programs (1).jpg" alt="Temple Performance - Programs 1">
                 </div>
             </div>
             
             <div class="gallery-item">
                 <div class="gallery-image">
-                    Performance Photo 2
+                    <img src="Programs (2).jpg" alt="Temple Performance - Programs 2">
                 </div>
             </div>
             
             <div class="gallery-item">
                 <div class="gallery-image">
-                    Performance Photo 3
+                    <img src="Programs (3).jpg" alt="Temple Performance - Programs 3">
                 </div>
             </div>
             
             <div class="gallery-item">
                 <div class="gallery-image">
-                    Performance Photo 4
+                    <img src="Programs (4).jpg" alt="Temple Performance - Programs 4">
                 </div>
             </div>
             
             <div class="gallery-item">
                 <div class="gallery-image">
-                    Performance Photo 5
+                    <img src="Programs (5).jpg" alt="Temple Performance - Programs 5">
                 </div>
             </div>
             
             <div class="gallery-item">
                 <div class="gallery-image">
-                    Performance Photo 6
+                    <img src="Programs (6).jpg" alt="Temple Performance - Programs 6">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (7).jpg" alt="Temple Performance - Programs 7">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (8).jpg" alt="Temple Performance - Programs 8">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (9).jpg" alt="Temple Performance - Programs 9">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (10).jpg" alt="Temple Performance - Programs 10">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (11).jpg" alt="Temple Performance - Programs 11">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (12).jpg" alt="Temple Performance - Programs 12">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (13).jpg" alt="Temple Performance - Programs 13">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (14).jpg" alt="Temple Performance - Programs 14">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (15).jpg" alt="Temple Performance - Programs 15">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (16).jpg" alt="Temple Performance - Programs 16">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (17).jpg" alt="Temple Performance - Programs 17">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (18).jpg" alt="Temple Performance - Programs 18">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (19).jpg" alt="Temple Performance - Programs 19">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (20).jpg" alt="Temple Performance - Programs 20">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (21).jpg" alt="Temple Performance - Programs 21">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (22).jpg" alt="Temple Performance - Programs 22">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (23).jpg" alt="Temple Performance - Programs 23">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (24).jpg" alt="Temple Performance - Programs 24">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (25).jpg" alt="Temple Performance - Programs 25">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (26).jpg" alt="Temple Performance - Programs 26">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (27).jpg" alt="Temple Performance - Programs 27">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (28).jpg" alt="Temple Performance - Programs 28">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (29).jpg" alt="Temple Performance - Programs 29">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (30).jpg" alt="Temple Performance - Programs 30">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (31).jpg" alt="Temple Performance - Programs 31">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (32).jpg" alt="Temple Performance - Programs 32">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (33).jpg" alt="Temple Performance - Programs 33">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (34).jpg" alt="Temple Performance - Programs 34">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (35).jpg" alt="Temple Performance - Programs 35">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (36).jpg" alt="Temple Performance - Programs 36">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (37).jpg" alt="Temple Performance - Programs 37">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (38).jpg" alt="Temple Performance - Programs 38">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (39).jpg" alt="Temple Performance - Programs 39">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (40).jpg" alt="Temple Performance - Programs 40">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (41).jpg" alt="Temple Performance - Programs 41">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (42).jpg" alt="Temple Performance - Programs 42">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (43).jpg" alt="Temple Performance - Programs 43">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (44).jpg" alt="Temple Performance - Programs 44">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (45).jpg" alt="Temple Performance - Programs 45">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (46).jpg" alt="Temple Performance - Programs 46">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (47).jpg" alt="Temple Performance - Programs 47">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (48).jpg" alt="Temple Performance - Programs 48">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (49).jpg" alt="Temple Performance - Programs 49">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (50).jpg" alt="Temple Performance - Programs 50">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (51).jpg" alt="Temple Performance - Programs 51">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (52).jpg" alt="Temple Performance - Programs 52">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (53).jpg" alt="Temple Performance - Programs 53">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (54).jpg" alt="Temple Performance - Programs 54">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (55).jpg" alt="Temple Performance - Programs 55">
+                </div>
+            </div>
+            
+            <!-- Additional JPEG format images -->
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (1).jpeg" alt="Temple Performance - Programs 1 (JPEG)">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (2).jpeg" alt="Temple Performance - Programs 2 (JPEG)">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (3).jpeg" alt="Temple Performance - Programs 3 (JPEG)">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (4).jpeg" alt="Temple Performance - Programs 4 (JPEG)">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (5).jpeg" alt="Temple Performance - Programs 5 (JPEG)">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Programs (6).jpeg" alt="Temple Performance - Programs 6 (JPEG)">
                 </div>
             </div>
         </div>
@@ -277,5 +720,104 @@
     <footer>
         <p>&copy; 2025 Gayathri Narayanamurthi - Nrityeswarra. All rights reserved.</p>
     </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <span class="lightbox-nav lightbox-prev" id="lightbox-prev">&#8249;</span>
+        <img id="lightbox-img" src="" alt="">
+        <span class="lightbox-nav lightbox-next" id="lightbox-next">&#8250;</span>
+    </div>
+
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        
+        // Get all gallery images
+        const galleryImages = document.querySelectorAll('.gallery-image img');
+        let currentImageIndex = 0;
+        
+        // Create array of image sources and alt texts
+        const images = Array.from(galleryImages).map(img => ({
+            src: img.src,
+            alt: img.alt
+        }));
+        
+        // Add click event to each gallery image
+        galleryImages.forEach((img, index) => {
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(index);
+            });
+        });
+        
+        // Open lightbox
+        function openLightbox(index) {
+            currentImageIndex = index;
+            lightboxImg.src = images[index].src;
+            lightboxImg.alt = images[index].alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+        
+        // Close lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+        
+        // Navigate to previous image
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            lightboxImg.src = images[currentImageIndex].src;
+            lightboxImg.alt = images[currentImageIndex].alt;
+        }
+        
+        // Navigate to next image
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            lightboxImg.src = images[currentImageIndex].src;
+            lightboxImg.alt = images[currentImageIndex].alt;
+        }
+        
+        // Event listeners
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevImage();
+        });
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextImage();
+        });
+        
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('active')) {
+                switch(e.key) {
+                    case 'Escape':
+                        closeLightbox();
+                        break;
+                    case 'ArrowLeft':
+                        prevImage();
+                        break;
+                    case 'ArrowRight':
+                        nextImage();
+                        break;
+                }
+            }
+        });
+    </script>
 </body>
 </html>

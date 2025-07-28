@@ -99,14 +99,17 @@
             height: 100vh;
             background-image: url("g3-bg.jpg");
             background-size: cover;
-            background-position: center -120px;
+            background-position: center 10%;
             background-repeat: no-repeat;
             position: relative;
             display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
-            justify-content: center;
             text-align: center;
             color: white;
+            padding-top: 30vh;
+            padding-bottom: 4rem;
         }
 
         .hero::before {
@@ -123,18 +126,30 @@
         .hero-content {
             position: relative;
             z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-title {
+            flex-shrink: 0;
+            margin-bottom: 15vh;
+        }
+
+        .hero-bottom {
+            flex-shrink: 0;
+            margin-top: auto;
         }
 
         .hero-content h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             font-family: 'Zapfino', cursive;
             font-weight: normal;
-            transform: translateY(20px);
         }
-
-
 
         .hero-content p {
             font-size: 1.3rem;
@@ -142,7 +157,6 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            transform: translateY(180px);
         }
 
         .cta-button {
@@ -155,13 +169,12 @@
             font-weight: bold;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transform: translateY(160px);
         }
 
         .cta-button:hover {
             background: #333333;
             box-shadow: 0 6px 20px rgba(51, 51, 51, 0.4);
-            transform: translateY(160px) scale(1.05);
+            transform: scale(1.05);
         }
 
         /* Section Styles */
@@ -237,11 +250,12 @@
         #portfolio {
             background-image: url("g3-portfolio.jpg");
             background-size: cover;
-            background-position: center;
+            background-position: center center;
             background-repeat: no-repeat;
             background-attachment: fixed;
             position: relative;
             min-height: 100vh;
+            padding: 80px 0;
         }       
 
         #portfolio::before {
@@ -259,8 +273,10 @@
             position: relative;
             z-index: 1;
             max-width: 100%;
-            padding-left: 5 0px;
-            padding-right: 0;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            padding-top: 0;
+            padding-bottom: 0;
         }
 
         #portfolio h2 {
@@ -274,7 +290,7 @@
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(2, 350px);
-            gap: 2rem;
+            gap: 15rem;
             margin-top: 2rem;
             justify-content: center;
         }
@@ -288,10 +304,11 @@
             cursor: pointer;
             text-decoration: none;
             color: inherit;
-            display: block;
+            display: flex;
+            flex-direction: column;
             position: relative;
             z-index: 2;
-            aspect-ratio: 1;
+            height: auto;
         }
 
         .portfolio-item:hover {
@@ -301,7 +318,7 @@
 
         .portfolio-image {
             width: 100%;
-            height: 60%;
+            height: 200px;
             background: linear-gradient(45deg, #666666, #FFFFFF);
             display: flex;
             align-items: center;
@@ -319,10 +336,10 @@
 
         .portfolio-content {
             padding: 1.5rem;
-            height: 40%;
+            flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
         }
 
         .portfolio-content h3 {
@@ -518,7 +535,7 @@
         @media (min-width: 1440px) {
             .portfolio-grid {
                 grid-template-columns: repeat(2, 400px);
-                gap: 3rem;
+                gap: 15rem;
                 justify-content: center;
             }
         }
@@ -526,12 +543,17 @@
         @media (min-width: 1200px) and (max-width: 1439px) {
             .portfolio-grid {
                 grid-template-columns: repeat(2, 380px);
-                gap: 10rem;
+                gap: 15rem;
                 justify-content: center;
             }
             
             #portfolio {
                 background-attachment: scroll;
+                background-position: center 10%;
+            }
+
+            .hero {
+                background-position: center 10%;
             }
         }
 
@@ -554,13 +576,15 @@
 
             .portfolio-grid {
                 grid-template-columns: repeat(2, 320px);
-                gap: 2rem;
+                gap: 12rem;
                 justify-content: center;
             }
 
             #portfolio {
                 background-attachment: scroll;
-                min-height: auto;
+                min-height: 100vh;
+                background-position: center 10%;
+                padding: 80px 0;
             }
 
             .portfolio-item {
@@ -573,6 +597,45 @@
 
             .portfolio-content p {
                 font-size: 0.85rem;
+            }
+
+            .hero {
+                background-position: center 10%;
+                padding-top: 28vh;
+                padding-bottom: 3rem;
+            }
+
+            .hero-title {
+                margin-bottom: 13vh;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .cta-button, .register-btn {
+                padding: 11px 25px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                padding-top: 26vh;
+                padding-bottom: 3rem;
+            }
+
+            .hero-title {
+                margin-bottom: 11vh;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 280px);
+                gap: 8rem;
             }
         }
 
@@ -611,16 +674,25 @@
                 font-family: 'Zapfino', cursive;
             }
 
-            .logo img {
+            .logo-text {
+                transform: translateY(15px);
+            }
+
+            .logo img { 
                 height: 50px;
                 width: 50px;
             }
 
             .hero {
-                /* For mobile devices with portrait images */
-                background-position: center 20%;
+                background-position: center 0%;
                 background-size: cover;
                 padding: 0 1rem;
+                padding-top: 25vh;
+                padding-bottom: 3rem;
+            }
+
+            .hero-title {
+                margin-bottom: 5vh;
             }
 
             .hero-content h1 {
@@ -676,10 +748,36 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
                 justify-content: center;
+                padding: 0 1rem;
+            }
+
+            .portfolio-item {
+                height: auto;
+                max-width: 100%;
+            }
+
+            .portfolio-image {
+                height: 200px;
+            }
+
+            .portfolio-content {
+                padding: 1.5rem;
+            }
+
+            .portfolio-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .portfolio-content p {
+                font-size: 0.85rem;
+                line-height: 1.3;
             }
 
             #portfolio {
                 background-attachment: scroll;
+                background-position: center 20%;
+                min-height: 100vh;
+                padding: 70px 1rem;
             }
 
             .registration-content {
@@ -701,13 +799,19 @@
         }
 
         @media (max-width: 480px) {
+            .logo-text {
+                transform: translateY(13px);
+            }
+
             .hero {
-                background-position: center 25%;
+                background-position: center 0%;
                 padding: 0 0.5rem;
+                padding-top: 20vh;
+                padding-bottom: 2rem;
             }
             
-            .hero-content {
-                padding: 2rem 1rem;
+            .hero-title {
+                margin-bottom: 3vh;
             }
             
             .hero-content h1 {
@@ -743,15 +847,14 @@
 
             .portfolio-item {
                 margin: 0 0.5rem;
-                aspect-ratio: 1.1;
+                height: auto;
             }
 
             .portfolio-image {
-                height: 55%;
+                height: 180px;
             }
 
             .portfolio-content {
-                height: 45%;
                 padding: 1rem;
             }
 
@@ -782,8 +885,26 @@
         }
 
         @media (max-width: 320px) {
+            .logo-text {
+                transform: translateY(11px);
+            }
+
+            .hero {
+                padding-top: 18vh;
+                padding-bottom: 1.5rem;
+            }
+
+            .hero-title {
+                margin-bottom: 2vh;
+            }
+
             .hero-content h1 {
                 font-size: 1.8rem;
+            }
+
+            .hero-content p {
+                font-size: 0.9rem;
+                line-height: 1.4;
             }
 
             .section h2 {
@@ -801,6 +922,37 @@
             .cta-button, .register-btn {
                 padding: 8px 16px;
                 font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 280px) {
+            .logo-text {
+                transform: translateY(10px);
+            }
+
+            .hero {
+                padding-top: 15vh;
+            }
+
+            .hero-title {
+                margin-bottom: 1vh;
+            }
+
+            .hero-content h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero-content p {
+                font-size: 0.8rem;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .logo img {
+                height: 40px;
+                width: 40px;
             }
         }
     </style>
@@ -827,9 +979,13 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Gayathri Narayanamurthi</h1>
-            <p>Master of Bharatanatyam • Kalakshetra Style • Classical Indian Dance&nbsp;Artist • Online&nbsp;Instructor</p>
-            <a href="#classes" class="cta-button">Join Online Classes</a>
+            <div class="hero-title">
+                <h1>Gayathri Narayanamurthi</h1>
+            </div>
+            <div class="hero-bottom">
+                <p>Indian Classical Dance Artist<br>Bharatanatyam • Kalakshetra Style • Online Instructor</p>
+                <a href="#classes" class="cta-button">Join Online Classes</a>
+            </div>
         </div>
     </section>
 
@@ -871,18 +1027,18 @@
         <div class="portfolio-grid">
             <a href="temple-performance-gallery.html" class="portfolio-item">
                 <div class="portfolio-image">
-                    <img src="g3-temple.jpg" alt="Temple Festival Performance">
+                    <img src="g3-temple.jpg" alt="Program Pictures">
                 </div>
                 <div class="portfolio-content">
-                    <h3>Temple Festival Performance</h3>
-                    <p>A mesmerizing performance at the annual temple festival, showcasing traditional Bharatanatyam repertoire with divine devotion.</p>
+                    <h3>Program Pictures</h3>
+                    <p>Memorable performances across various cultural programs and sacred temple venues, celebrating the divine art of Bharatanatyam.</p>
                 </div>
             </a>
             <a href="arangetram-ceremony-gallery.html" class="portfolio-item">
                 <div class="portfolio-image">Performance Image 3</div>
                 <div class="portfolio-content">
                     <h3>Arangetram Ceremony</h3>
-                    <p>Debut performance marking the completion of formal training, a significant milestone in any Bharatanatyam dancer's journey.</p>
+                    <p>A sacred debut performance marking the completion of formal training and the transition from student to artist.</p>
                 </div>
             </a>
         </div>

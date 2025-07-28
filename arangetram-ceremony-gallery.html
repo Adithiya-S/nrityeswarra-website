@@ -134,9 +134,8 @@
         }
 
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            column-count: 3;
+            column-gap: 2rem;
             margin-top: 2rem;
         }
 
@@ -146,28 +145,14 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
+            break-inside: avoid;
+            margin-bottom: 2rem;
+            display: inline-block;
+            width: 100%;
         }
 
         .gallery-item:hover {
             transform: translateY(-5px);
-        }
-
-        .gallery-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(45deg, #666666, #FFFFFF);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            overflow: hidden;
-        }
-
-        .gallery-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .gallery-description {
@@ -194,6 +179,116 @@
             margin-top: 3rem;
         }
 
+        /* Lightbox Styles */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox.active img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2001;
+            transition: color 0.3s ease, transform 0.2s ease;
+            opacity: 0;
+        }
+
+        .lightbox.active .lightbox-close {
+            opacity: 1;
+        }
+
+        .lightbox-close:hover {
+            color: #ccc;
+            transform: scale(1.1);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            z-index: 2001;
+            transition: color 0.3s ease, transform 0.2s ease;
+            padding: 10px;
+            opacity: 0;
+        }
+
+        .lightbox.active .lightbox-nav {
+            opacity: 1;
+        }
+
+        .lightbox-nav:hover {
+            color: #ccc;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        /* Make gallery images clickable */
+        .gallery-image {
+            width: 100%;
+            background: linear-gradient(45deg, #666666, #FFFFFF);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
@@ -205,7 +300,13 @@
             }
 
             .gallery-grid {
-                grid-template-columns: 1fr;
+                column-count: 1;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .gallery-grid {
+                column-count: 2;
             }
         }
     </style>
@@ -236,39 +337,256 @@
         </div>
 
         <div class="gallery-grid">
+            <!-- Arangetram Ceremony Images -->
             <div class="gallery-item">
                 <div class="gallery-image">
-                    Arangetram Photo 1
+                    <img src="Arangetram (1).jpg" alt="Arangetram Ceremony - Image 1">
                 </div>
             </div>
             
             <div class="gallery-item">
                 <div class="gallery-image">
-                    Arangetram Photo 2
+                    <img src="Arangetram (2).jpg" alt="Arangetram Ceremony - Image 2">
                 </div>
             </div>
             
             <div class="gallery-item">
                 <div class="gallery-image">
-                    Arangetram Photo 3
+                    <img src="Arangetram (3).jpg" alt="Arangetram Ceremony - Image 3">
                 </div>
             </div>
             
             <div class="gallery-item">
                 <div class="gallery-image">
-                    Arangetram Photo 4
+                    <img src="Arangetram (4).jpg" alt="Arangetram Ceremony - Image 4">
                 </div>
             </div>
             
             <div class="gallery-item">
                 <div class="gallery-image">
-                    Arangetram Photo 5
+                    <img src="Arangetram (5).jpg" alt="Arangetram Ceremony - Image 5">
                 </div>
             </div>
             
             <div class="gallery-item">
                 <div class="gallery-image">
-                    Arangetram Photo 6
+                    <img src="Arangetram (6).jpg" alt="Arangetram Ceremony - Image 6">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (7).jpg" alt="Arangetram Ceremony - Image 7">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (8).jpg" alt="Arangetram Ceremony - Image 8">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (9).jpg" alt="Arangetram Ceremony - Image 9">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (10).jpg" alt="Arangetram Ceremony - Image 10">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (11).jpg" alt="Arangetram Ceremony - Image 11">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (12).jpg" alt="Arangetram Ceremony - Image 12">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (13).jpg" alt="Arangetram Ceremony - Image 13">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (14).jpg" alt="Arangetram Ceremony - Image 14">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (15).jpg" alt="Arangetram Ceremony - Image 15">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (16).jpg" alt="Arangetram Ceremony - Image 16">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (17).jpg" alt="Arangetram Ceremony - Image 17">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (18).jpg" alt="Arangetram Ceremony - Image 18">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (19).jpg" alt="Arangetram Ceremony - Image 19">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (20).jpg" alt="Arangetram Ceremony - Image 20">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (21).jpg" alt="Arangetram Ceremony - Image 21">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (22).jpg" alt="Arangetram Ceremony - Image 22">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (23).jpg" alt="Arangetram Ceremony - Image 23">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (24).jpg" alt="Arangetram Ceremony - Image 24">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (25).jpg" alt="Arangetram Ceremony - Image 25">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (26).jpg" alt="Arangetram Ceremony - Image 26">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (27).jpg" alt="Arangetram Ceremony - Image 27">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (28).jpg" alt="Arangetram Ceremony - Image 28">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (29).jpg" alt="Arangetram Ceremony - Image 29">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (30).jpg" alt="Arangetram Ceremony - Image 30">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (31).jpg" alt="Arangetram Ceremony - Image 31">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (32).jpg" alt="Arangetram Ceremony - Image 32">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (33).jpg" alt="Arangetram Ceremony - Image 33">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (34).jpg" alt="Arangetram Ceremony - Image 34">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (35).jpg" alt="Arangetram Ceremony - Image 35">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (36).jpg" alt="Arangetram Ceremony - Image 36">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (37).jpg" alt="Arangetram Ceremony - Image 37">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (38).jpg" alt="Arangetram Ceremony - Image 38">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (39).jpg" alt="Arangetram Ceremony - Image 39">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (40).jpg" alt="Arangetram Ceremony - Image 40">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (41).jpg" alt="Arangetram Ceremony - Image 41">
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="Arangetram (42).jpg" alt="Arangetram Ceremony - Image 42">
                 </div>
             </div>
         </div>
@@ -277,5 +595,104 @@
     <footer>
         <p>&copy; 2025 Gayathri Narayanamurthi - Nrityeswarra. All rights reserved.</p>
     </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <span class="lightbox-nav lightbox-prev" id="lightbox-prev">&#8249;</span>
+        <img id="lightbox-img" src="" alt="">
+        <span class="lightbox-nav lightbox-next" id="lightbox-next">&#8250;</span>
+    </div>
+
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        
+        // Get all gallery images
+        const galleryImages = document.querySelectorAll('.gallery-image img');
+        let currentImageIndex = 0;
+        
+        // Create array of image sources and alt texts
+        const images = Array.from(galleryImages).map(img => ({
+            src: img.src,
+            alt: img.alt
+        }));
+        
+        // Add click event to each gallery image
+        galleryImages.forEach((img, index) => {
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(index);
+            });
+        });
+        
+        // Open lightbox
+        function openLightbox(index) {
+            currentImageIndex = index;
+            lightboxImg.src = images[index].src;
+            lightboxImg.alt = images[index].alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+        
+        // Close lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+        
+        // Navigate to previous image
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            lightboxImg.src = images[currentImageIndex].src;
+            lightboxImg.alt = images[currentImageIndex].alt;
+        }
+        
+        // Navigate to next image
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            lightboxImg.src = images[currentImageIndex].src;
+            lightboxImg.alt = images[currentImageIndex].alt;
+        }
+        
+        // Event listeners
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevImage();
+        });
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextImage();
+        });
+        
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('active')) {
+                switch(e.key) {
+                    case 'Escape':
+                        closeLightbox();
+                        break;
+                    case 'ArrowLeft':
+                        prevImage();
+                        break;
+                    case 'ArrowRight':
+                        nextImage();
+                        break;
+                }
+            }
+        });
+    </script>
 </body>
 </html>
